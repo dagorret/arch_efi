@@ -219,21 +219,9 @@ cecho
 cecho "Installing bootloader"
 
 arun "grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi"
+arun "grub-mkconfig -o /boot/grub/grub.cfg"
 
 
-# DRM if NVIDIA
-DRMIFNVIDIA=''
-if [ "$Graphics" = "N" ]; then
-	DRMIFNVIDIA='nvidia-drm.modeset=1'
-fi
-
-
-BootConf='/boot/loader/entries/arch.conf'
-echo -e "title   Arch Linux\nlinux   /vmlinuz-linux" > /mnt/$BootConf
-if [ "$Proc" != "V" ]; then
-	echo "initrd  /${ProcMicro}.img" >>  /mnt/$BootConf
-fi
-echo -e "initrd  /initramfs-linux.img\noptions root=LABEL=$RootLabel rw $DRMIFNVIDIA" >>  /mnt/$BootConf 
 
 
 # Root password and add user
