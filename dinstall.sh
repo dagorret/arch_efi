@@ -160,7 +160,7 @@ arun "hwclock --systohc"
 echo -e "#\n# My locales\nes_AR.UTF-8 UTF-8\nen_US.UTF-8  >> /mnt/etc/locale.gen
 arun "locale-gen"
 echo "LANG=es_AR.UTF-8" > /mnt/etc/locale.conf
-
+echo KEYMAP=la-latin1 > /mnt/etc/vconsole.conf
 cecho "Creating hosts"
 echo $HostName > /mnt/etc/hostname
 echo -e "127.0.0.1    ${HostName}\n::1          ${HostName}\n127.0.1.1    ${HostName}.localdomain    ${HostName}" > /mnt/etc/hosts
@@ -191,7 +191,7 @@ esac
 # Essential packages
 Linux='linux linux-firmware'
 Goodies='dhcpcd vim sudo bash-completion firefox chrome-gnome-shell man-db grub os-probes ntfs-3g efibootmgr xf86-input-synaptics netctl wpa_supplicant dialog'
-Gnome='eog evince evolution evolution-ews file-roller gdm gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-session gnome-settings-daemon gnome-shell gnome-system-monitor gnome-terminal gnome-tweaks gnome-weather gvfs gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs mutter nautilus networkmanager sushi tracker tracker-miners xdg-user-dirs-gtk'
+Gnome='eog evince evolution evolution-ews file-roller gdm gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-session gnome-settings-daemon gnome-shell gnome-system-monitor gnome-terminal gnome-tweaks gnome-weather gvfs gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs mutter nautilus networkmanager sushi tracker tracker-miners xdg-user-dirs-gtk xdg-user-dirs'
 
 cecho
 cecho "Install linux and other goodies."
