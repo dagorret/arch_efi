@@ -82,11 +82,11 @@ cecho "Making and mounting filesystems..."
 mkfs.ext4 -L $RootLabel /dev/${Disk}6
 mount /dev/${Disk}6 /mnt
 mkdir /mnt/boot
-#uefi? - EFI particion es sda2
+#uefi - EFI particion es sda2
 mount /dev/${Disk}2 /mnt/boot
 
 cecho
-curl -s "https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
+curl -s "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
 cecho "Updated list for GB mirrors; here it is:"
 cat /etc/pacman.d/mirrorlist
 cecho "Pacstraping..."
