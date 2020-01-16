@@ -190,7 +190,7 @@ esac
 
 # Essential packages
 Linux='linux linux-firmware'
-Goodies='dhcpcd nano sudo bash-completion chromium chrome-gnome-shell man-db'
+Goodies='dhcpcd vim sudo bash-completion firefox chrome-gnome-shell man-db grub os-probes ntfs-3g efibootmgr xf86-input-synaptics netctl wpa_supplicant dialog'
 Gnome='eog evince evolution evolution-ews file-roller gdm gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-session gnome-settings-daemon gnome-shell gnome-system-monitor gnome-terminal gnome-tweaks gnome-weather gvfs gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs mutter nautilus networkmanager sushi tracker tracker-miners xdg-user-dirs-gtk'
 
 cecho
