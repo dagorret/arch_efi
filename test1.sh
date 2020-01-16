@@ -23,3 +23,18 @@ do
 done
 
 qecho $Proc
+
+qecho '======================'
+
+cecho
+cecho "Identifying installation disk. Check the output of fdisk below."
+cecho
+fdisk -l
+#Asignar a Disk
+Disk = 'sda'
+cecho
+qecho "Disk to install Arch on? (Fill the xxx in /dev/xxx)"
+#read Disk
+
+cecho $Disk
+cecho
