@@ -94,17 +94,17 @@ sudo pacman -S --needed $BASIC $TTF $TEXLIVE $CODECS
 
 
 
-AUR=''
-if [ "$YAY" = "y" ]; then
-	AUR='pcloud-drive pcloudcc dropbox spotify-adblock-git skypeforlinux-preview-bin chromium-widevine adwaita-qt qgnomeplatform'
-	sudo pacman -S --needed base-devel git
-	git config --global user.name  "coxackie"
-	git config --global user.email "kostas.kardaras@gmail.com"
-	git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
-	cd ~ && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -sirc && cd ~ && rm -rf yay-bin
-fi
+#AUR=''
+#if [ "$YAY" = "y" ]; then
+#	AUR='pcloud-drive pcloudcc dropbox spotify-adblock-git skypeforlinux-preview-bin chromium-widevine adwaita-qt qgnomeplatform'
+#	sudo pacman -S --needed base-devel git
+#	git config --global user.name  "coxackie"
+#	git config --global user.email "kostas.kardaras@gmail.com"
+#	git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+#	cd ~ && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -sirc && cd ~ && rm -rf yay-bin
+#fi
 
-yay -S --needed $AUR
+#yay -S --needed $AUR
 
 
 
