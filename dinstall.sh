@@ -81,13 +81,13 @@ cecho "Making and mounting filesystems..."
 #Particion Root es sda6
 mkfs.ext4 -L $RootLabel /dev/${Disk}6
 mount /dev/${Disk}6 /mnt
-mkdir /mnt/boot
+mkdir -p /mnt/boot/efi
 #uefi - EFI particion es sda2
 mount /dev/${Disk}2 /mnt/boot
 
 cecho
 curl -s "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
-cecho "Updated list for GB mirrors; here it is:"
+cecho "Updated list for BR mirrors; here it is:"
 cat /etc/pacman.d/mirrorlist
 cecho "Pacstraping..."
 pacstrap /mnt 
@@ -131,7 +131,7 @@ read HostName
 Swap=''
 while [ "$Swap" != "y" ] && [ "$Swap" != "n" ]
 do
-	qecho "Swap file size (4 GiB)? (y/n)"
+	qecho "Swap file size (12 GiB)? (y/n)"
 	read Swap
 done
 
@@ -204,7 +204,7 @@ if [ "$Swap" = "y" ]; then
 	cecho
 	cecho "Making swap file..."
 	cecho
-	arun "fallocate -l 4G /swapfile"
+	arun "fallocate -l 12G /swapfile"
 	arun "chmod 600 /swapfile"
 	arun "mkswap /swapfile" 
 	arun "swapon /swapfile"
