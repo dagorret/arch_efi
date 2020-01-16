@@ -83,7 +83,7 @@ mkfs.ext4 -L $RootLabel /dev/${Disk}6
 mount /dev/${Disk}6 /mnt
 mkdir -p /mnt/boot/efi
 #uefi - EFI particion es sda2
-mount /dev/${Disk}2 /mnt/boot
+mount /dev/${Disk}2 /mnt/boot/efi
 
 cecho
 curl -s "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
