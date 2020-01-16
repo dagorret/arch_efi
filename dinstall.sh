@@ -82,8 +82,8 @@ cecho "Making and mounting filesystems..."
 mkfs.ext4 -L $RootLabel /dev/${Disk}6
 mount /dev/${Disk}6 /mnt
 mkdir /mnt/boot
-#uefi?
-mount /dev/${Disk}1 /mnt/boot
+#uefi? - EFI particion es sda2
+mount /dev/${Disk}2 /mnt/boot
 
 cecho
 curl -s "https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
@@ -157,9 +157,9 @@ kitarida
 cecho "Creating US, GB and GR locale; time zone and default language GB"
 arun "ln -sf /usr/share/zoneinfo/GB /etc/localtime"
 arun "hwclock --systohc"
-echo -e "#\n# My locales\nen_GB.UTF-8 UTF-8\nen_US.UTF-8 UTF-8\nel_GR.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+echo -e "#\n# My locales\nes_AR.UTF-8 UTF-8\nen_US.UTF-8  >> /mnt/etc/locale.gen
 arun "locale-gen"
-echo "LANG=en_GB.UTF-8" > /mnt/etc/locale.conf
+echo "LANG=es_AR.UTF-8" > /mnt/etc/locale.conf
 
 cecho "Creating hosts"
 echo $HostName > /mnt/etc/hostname
