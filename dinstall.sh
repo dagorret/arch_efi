@@ -155,7 +155,7 @@ kitarida
 # Create locale and host files
 
 cecho "Creating US, GB and GR locale; time zone and default language GB"
-arun "ln -sf /usr/share/zoneinfo/GB /etc/localtime"
+arun "ln -sf /usr/share/zoneinfo/America/Argentina/Cordoba /etc/localtime"
 arun "hwclock --systohc"
 echo -e "#\n# My locales\nes_AR.UTF-8 UTF-8\nen_US.UTF-8  >> /mnt/etc/locale.gen
 arun "locale-gen"
@@ -213,12 +213,12 @@ fi
 
 
 
-# Install and configure systemd-boot
+# Install and configure Grub
 
 cecho
 cecho "Installing bootloader"
 
-arun "bootctl --path=/boot/ install"
+arun "grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi"
 
 
 # DRM if NVIDIA
